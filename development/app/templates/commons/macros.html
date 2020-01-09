@@ -142,3 +142,56 @@
     </tr>
 {% endmacro %}
 
+{% macro show_questions_studnet(q)%}
+      <table style="margin-left: 50px;">
+     <div style="margin-left:50px;text-align: left;"><strong>{{ q.question }}</strong></div>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-1" name="radio1" type="radio" value="checkA">
+                        <label for="radio-1" class="radio-label">A:</label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                             <span>{{ q.ansA }}</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-2" name="radio1" type="radio" value="checkB">
+                        <label for="radio-2" class="radio-label">B: </label>
+                      </div>
+
+                </th>
+                <th class="thstyle2">
+                    <span>{{ q.ansB }}</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-3" name="radio1" type="radio" value="checkC">
+                        <label for="radio-3" class="radio-label">C: </label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                    <span>{{ q.ansC }}</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-4" name="radio1" type="radio" value="checkD" >
+                        <label for="radio-4" class="radio-label">D: </label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                    <span>{{ q.ansD }}</span>
+                </th>
+            </tr>
+          </table>
+  <!-- end -->
+{% endmacro %}

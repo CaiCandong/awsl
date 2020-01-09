@@ -1,3 +1,4 @@
+{% from 'commons/macros.html' import show_questions_studnet%}
 <!DOCTYPE html>
 <head>
     <title>考试界面</title>
@@ -66,9 +67,24 @@
 </head>
 <body>
     <form action="">
-    <table style="margin-left: 50px;">
-        
-        <!--  start  --><div style="margin-left:50px;text-align: left;"><strong>1、操作控制器的功能是______。</strong></div>
+
+        {% if questions %}
+            {% for question in questions %}
+                   {{ show_questions_studnet(question) }}
+             {% endfor %}
+
+
+
+        {% else %}
+
+
+
+
+
+
+        <table style="margin-left: 49px;">
+        <!--  start  -->
+        <div style="margin-left:50px;text-align: left;"><strong>1、操作控制器的功能是______。</strong></div>
             <tr class="trstyle">
                 <th class="thstyle1">
                     <div class="radio" style="margin-left: 0px;">
@@ -227,6 +243,7 @@
                 </th>
             </tr></table>
   <!-- end -->
+   {% endif %}
   <input type="submit" value="提交" style="width: 300px;height: 40px;margin-left: 60px;background-color: seagreen;">
  
 </form>  

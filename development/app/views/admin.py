@@ -16,12 +16,14 @@ def welcome():
 
 
 @admin_blue.route('/students/')
+@login_required
 def student():
     students = Student.query.paginate(per_page=10)
     return render_template('admin/students.html', pagination=students)
 
 
 @admin_blue.route('/student_idcard', methods=['POST', 'GET'])
+@login_required
 def student_idcard():
     idcard = request.args.get('idcard')
     if idcard:
@@ -33,46 +35,54 @@ def student_idcard():
 
 
 @admin_blue.route('/teachers/')
+@login_required
 def teachers():
     ts = Teacher.query.paginate(per_page=10)
     return render_template('admin/teachers.html', pagination=ts)
 
 
 @admin_blue.route('/comments')
+@login_required
 def comments():
     ts = Paper_C.query.paginate(per_page=10)
     return render_template('admin/comments.html', pagination=ts)
 
 
 @admin_blue.route('/problems')
+@login_required
 def problems():
     questions = Single_Q.query.paginate(per_page=10)
     return render_template('admin/problems.html', pagination=questions)
 
 
 @admin_blue.route('/papers')
+@login_required
 def papers():
     papers = Paper.query.paginate(per_page=10)
     return render_template('admin/papers.html', pagination=papers)
 
 
 @admin_blue.route('/profile/')
+@login_required
 def profile():
     return "个人中心"
 
 
 @admin_blue.route('/paper_add')
+@login_required
 def paper_add():
     return render_template('admin/paper_add.html')
 
 
 @admin_blue.route('/problem_add')
+@login_required
 def problem_add():
     form = problemForm()
     return render_template('admin/problem_add.html', form=form)
 
 
 @admin_blue.route('/student_add', methods=["POST", "GET"])
+@login_required
 def student_add():
     form = AddStudent()
     if form.validate_on_submit():
@@ -94,6 +104,7 @@ def student_add():
 
 
 @admin_blue.route('/teacher_add', methods=["POST", "GET"])
+@login_required
 def teacher_add():
     form = teacherForm()
     if form.validate_on_submit():
@@ -115,6 +126,7 @@ from .student import delete_student_byId
 
 
 @admin_blue.route('/delete_student')
+@login_required
 def delete_student():
     uid = request.args.get('uid')
     print(uid)
@@ -126,6 +138,7 @@ def delete_student():
 
 
 @admin_blue.route('/delete_teacher')
+@login_required
 def delete_teacher():
     uid = request.args.get('uid')
     print(uid)

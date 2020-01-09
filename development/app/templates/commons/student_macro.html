@@ -15,7 +15,7 @@
             <tr>
                 <td>{{ paper.id }}</td>
                 <td>{{ paper.subject }}</td>
-                <td><a href="{{ url_for('student_blue.exam')}}" style="color: #00ABF0">{{ paper.describe }}</a></td>
+                <td><a href="{{ url_for('student_blue.exam')}}?paper_id={{ paper.id }}" style="color: #00ABF0">{{ paper.describe }}</a></td>
                 <td>{{ paper.startDate }}</td>
                 <td>
                     {% if paper.status %}

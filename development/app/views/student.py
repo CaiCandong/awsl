@@ -1,7 +1,6 @@
 from flask import Blueprint, flash, render_template, redirect, url_for, request
 from flask_login import login_required, current_user, logout_user
-from markupsafe import Markup
-from pyecharts.charts import Line, Bar
+from pyecharts.charts import Line
 
 from app.email import send_mail
 from app.extensions import db
@@ -9,7 +8,7 @@ from app.forms import RegisterForm
 from app.forms.student import StdinfoForm, Stdpwd, commentss
 from app.forms.users import FindpswForm, ResetpwsFrom
 from app.model import Student, Paper
-from app.model.papers import Record, Paper_C
+from app.model.papers import Record, Paper_C, Single_Q
 from app.util import id2Token, check_active_token, token2Id
 
 student_blue = Blueprint('student_blue', __name__)
@@ -47,7 +46,18 @@ def welcome():
 
 @student_blue.route('/exam')
 def exam():
-    return render_template('student/exam.html')
+    paper_id = request.args.get('paper_id')
+    paper = Paper.query.get(paper_id)
+    questions = []
+    if paper.forms:
+        i = 1
+        for form in paper.forms:
+            if i > 3:
+                break
+            temp = Single_Q.query.get(form.question_id)
+            questions.append(temp)
+            i=i+1
+    return render_template('student/exam.html', questions=questions)
 
 
 @student_blue.route('/history')
@@ -199,3 +209,13 @@ def results():
     paper = Paper.query.get(paper_id)
     paper.paper_comments
     return render_template('student/testresult.html', form=form, paper=paper)
+
+
+@student_blue.route('/delete_comment', methods=["POST", "GET"])
+def delete_comment():
+    id = request.args.get('id')
+    if id:
+        temp = Paper_C.query.get(id)
+        db.session.delete(temp)
+        db.session.commit()
+    return "删除成功"
