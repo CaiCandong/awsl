@@ -1,0 +1,104 @@
+{% extends 'commons/base_.html' %}
+<html lang="en">
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>考试结果</title>
+{% endblock %}
+
+
+{% block content %}
+    <table>
+        <tr style="height: 40px;">
+            <th style="width:200px"></th>
+            <th style="width: 1000px;">
+                <div style="text-align: left;"><span style="font-size: 25px;">计算机组成原理</span> <span
+                        style="font-size: 17px;">计算机171班第一单元检测&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
+                <hr>
+
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <div style="text-align: left;"><span
+                        style="font-size: 14px;font-weight: lighter;margin-left: 0px;">姓名：{{ current_user.name }}&nbsp;&nbsp;&nbsp;&nbsp; 学院班级：{{ current_user._class }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
+            </th>
+            <th></th>
+        </tr>
+        <tr style="height: 15px;">
+            <th></th>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <div style="text-align: left;"><i style="margin-top: 15px;color:dimgray;">对题目有什么想说的？在此畅所欲言吧</i></div>
+
+                {{ wtf.quick_form(form) }}
+                <br/>
+                <br/>
+
+                <div style="text-align: left;"><i style="margin-top: 15px;color:dimgray;">其他同学的留言</i></div>
+                <hr/>
+
+                {% if paper. paper_comments %}
+
+                    {% for c in paper.paper_comments %}
+
+
+                          <div style="text-align: left;"><span style="font-weight:600;color:dodgerblue;">{{ c.id }}</span><i style="font-weight: lighter;font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                            评论于&nbsp;{{ c.times }}</i></div>
+                        <div style="text-indent: 32px;text-align: left;margin-top: 10px;font-weight: 400;">
+                            {{ c.comment }}
+                        </div>
+                        <hr style="width: 70%;margin-left: 0px;"/>
+
+
+
+
+
+                    {% endfor %}
+                    {% else %}
+                    这里什么都没有
+                {% endif %}
+
+
+
+
+
+
+{#                                <div style="text-align: left;"><span style="font-weight:600;color:dodgerblue;">罗建齐</span><i style="font-weight: lighter;font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#                                    评论于&nbsp;2020-1-8 20:34</i></div>#}
+{#                                <div style="text-indent: 32px;text-align: left;margin-top: 10px;font-weight: 400;">我觉得这次考试挺简单的，轻轻松松100分</div>#}
+{#                                <hr style="width: 70%;margin-left: 0px;"/>#}
+{##}
+{##}
+{##}
+{##}
+{#                                  <div style="text-align: left;"><span style="font-weight:600;color:dodgerblue;">罗建齐</span><i style="font-weight: lighter;font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#                                    评论于&nbsp;2020-1-8 20:34</i></div>#}
+{#                                  <div style="text-indent: 32px;text-align: left;margin-top: 10px;font-weight: 400;">如果让你重新来过你会不会爱我，爱情让人拥有快乐也会带来这折磨</div>#}
+{#                                  <hr style="width: 70%;margin-left: 0px;"/>#}
+{##}
+{##}
+{##}
+{#                                <div style="text-align: left;"><span style="font-weight:600;color:dodgerblue;">罗建齐</span><i style="font-weight: lighter;font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#                                    评论于&nbsp;2020-1-8 20:34</i></div>#}
+{#                <div style="text-indent: 32px;text-align: left;margin-top: 10px;font-weight: 400;">这么性别怎么不能勾啊，我觉得可以#}
+{#                </div>#}
+{#                <hr style="width: 70%;margin-left: 0px;"/>#}
+
+            </th>
+            <th></th>
+        </tr>
+    </table>
+{% endblock %}
+</html>

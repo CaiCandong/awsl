@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<head>
+    <title>考试界面</title>
+    <style>
+      .radio {
+        margin: 0.5rem;
+      }
+      .radio input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+      }
+      .radio input[type="radio"] + .radio-label:before {
+        content: '';
+        background: #f4f4f4;
+        border-radius: 100%;
+        border: 1px solid #b4b4b4;
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        position: relative;
+        top: -0.2em;
+        margin-right: 1em;
+        vertical-align: top;
+        cursor: pointer;
+        /*text-align: center;*/
+        -webkit-transition: all 250ms ease;
+        transition: all 250ms ease;
+      }
+      .radio input[type="radio"]:checked + .radio-label:before {
+        background-color: #3197EE;
+        box-shadow: inset 0 0 0 4px #f4f4f4;
+      }
+      .radio input[type="radio"]:focus + .radio-label:before {
+        outline: none;
+        border-color: #3197EE;
+      }
+      .radio input[type="radio"]:disabled + .radio-label:before {
+        box-shadow: inset 0 0 0 4px #f4f4f4;
+        border-color: #b4b4b4;
+        background: #b4b4b4;
+      }
+      .radio input[type="radio"] + .radio-label:empty:before {
+        margin-right: 0;
+      }
+      .thstyle1{
+        /* border: 1px solid #000; */
+        
+        text-align: left;
+        margin-left: 70px;
+        width: 70px;
+
+      }
+      .thstyle2{
+        width: 800px;
+        /* border: 1px solid #000; */
+        text-align: left;    
+        margin-top: 0px;
+      }
+      .trstyle{
+        /* border: 1px solid #000; */
+      }
+      span{
+          font-weight: lighter;
+      }
+    </style>
+</head>
+<body>
+    <form action="">
+    <table style="margin-left: 50px;">
+        
+        <!--  start  --><div style="margin-left:50px;text-align: left;"><strong>1、操作控制器的功能是______。</strong></div>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-1" name="radio1" type="radio" value="checkA">
+                        <label for="radio-1" class="radio-label">A:</label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                             <span>产生时序信号</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-2" name="radio1" type="radio" value="checkB">
+                        <label for="radio-2" class="radio-label">B: </label>
+                      </div>
+
+                </th>
+                <th class="thstyle2">
+                    <span>从主存中取出一条指令</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-3" name="radio1" type="radio" value="checkC">
+                        <label for="radio-3" class="radio-label">C: </label>
+                      </div>
+
+                </th>
+                <th class="thstyle2">
+                    <span>完成指令操作码译码</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-4" name="radio1" type="radio" value="checkD" >
+                        <label for="radio-4" class="radio-label">D: </label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                    <span>从主存取出指令，完成指令操作码译码，并产生相关的操作控制信号，以解释执行该指令</span>
+                </th>
+            </tr>
+  <!-- end -->
+
+    </table>
+    <table style="margin-left: 50px;">
+        
+        <!--  start  --><div style="margin-left:50px;text-align: left;"><strong>2、以下叙述中正确的句子是______。</strong></div>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-12" name="radio2" type="radio" value="checkA2">
+                        <label for="radio-12" class="radio-label">A:</label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                             <span>同一个CPU周期中，可以并行执行的微操作叫相关性微操作</span>
+                             
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-22" name="radio2" type="radio" value="checkB2">
+                        <label for="radio-22" class="radio-label">B: </label>
+                      </div>
+
+                </th>
+                <th class="thstyle2">
+                    <span>同一个CPU周期中，不可以并行执行的微操作叫相容性微操作</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-32" name="radio2" type="radio" value="checkC2">
+                        <label for="radio-32" class="radio-label">C: </label>
+                      </div>
+
+                </th>
+                <th class="thstyle2">
+                    <span> 同一个CPU周期中，可以并行执行的微操作叫相斥性微操作</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-42" name="radio2" type="radio" value="checkD2" >
+                        <label for="radio-42" class="radio-label">D: </label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                    <span>同一个CPU周期中，不可以并行执行的微操作叫相斥性微操作</span>
+                </th>
+            </tr>
+  <!-- end -->
+
+    </table>
+    <table style="margin-left: 50px;">
+        
+        <!--  start  --><div style="margin-left:50px;text-align: left;"><strong>3、微程序控制器中，机器指令与微指令的关系是______。</strong></div>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-13" name="radio3" type="radio" value="checkA">
+                        <label for="radio-13" class="radio-label">A:</label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                             <span>每一条机器指令由一般微指令编成的微程序来解释执行</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-23" name="radio3" type="radio" value="checkB">
+                        <label for="radio-23" class="radio-label">B: </label>
+                      </div>
+
+                </th>
+                <th class="thstyle2">
+                    <span>每一条机器指令由一条微指令来执行</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-33" name="radio3" type="radio" value="checkC">
+                        <label for="radio-33" class="radio-label">C: </label>
+                      </div>
+
+                </th>
+                <th class="thstyle2">
+                    <span>一段机器指令组成的程序可由一条微指令来执行</span>
+                </th>
+            </tr>
+            <tr class="trstyle">
+                <th class="thstyle1">
+
+                    <div class="radio" style="margin-left: 0px;">
+                        <input id="radio-43" name="radio3" type="radio" value="checkD" >
+                        <label for="radio-43" class="radio-label">D: </label>
+                      </div>
+                </th>
+                <th class="thstyle2">
+                    <span>一条微指令由若干条机器指令组成</span>
+                </th>
+            </tr></table>
+  <!-- end -->
+  <input type="submit" value="提交" style="width: 300px;height: 40px;margin-left: 60px;background-color: seagreen;">
+ 
+</form>  
+</body>
+
+
+</html>
+
+

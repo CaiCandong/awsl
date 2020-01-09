@@ -1,0 +1,24 @@
+{% macro input(q) %}
+    <tr>
+        <td>{{ q.id }}</td>
+        <td>{{ q.question }}</td>
+        <td>{{ q.ansA }}</td>
+        <td>{{ q.ansB }}</td>
+        <td>{{ q.ansC }}</td>
+        <td>{{ q.ansD }}</td>
+        <td>{{ q.correct }}</td>
+        <td>无</td>
+        <td>{% if q.source ==None %}
+                admin
+            {% else %}
+                {{ q.source}}
+            {% endif %}</td>
+        <td>{{ q.tag }}</td>
+        <td class="td-manage">
+            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
+                <i class="layui-icon">&#xe63c;</i></a>
+            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                <i class="layui-icon">&#xe640;</i></a>
+        </td>
+    </tr>
+{% endmacro %}

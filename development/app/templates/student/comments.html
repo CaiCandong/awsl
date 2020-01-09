@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的评论</title>
+    <style>
+        .sy1{
+            margin-left: 100px;
+            width: 1000px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .sy2{
+            margin-left:100px;
+            width: 1000px;
+            text-indent: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div style="font-size: 30px;margin-left:100px;margin-top: 50px;width: 1000px;">我的评论<hr></div>
+    <!--展示评论开始-->
+    {% if bean.comments %}
+            {% for comment in bean.comments%}
+                <div class="sy2">{{ comment.comment }}</div>
+                <div class="sy1">评论&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;color:midnightblue;">试卷编号:
+                    {{ comment.paper_id }}</i>&nbsp;&nbsp;&nbsp;于 <i style="font-size: 14px;color: midnightblue;">{{ comment.times }}</i>
+                    &nbsp;&nbsp;&nbsp;<a href="#">删除</a>
+                    <hr style="width: 50%;margin-right: 0px;"/></div>
+            {% endfor %}
+        {% else %}
+         <div class="sy2">这个人很懒，什么都没有留下</div>
+    {% endif %}
+</body>
+</html>

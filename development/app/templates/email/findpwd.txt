@@ -1,0 +1,2 @@
+您好! {{ username }}
+重置密码请点击右侧链接{{ url_for('student_blue.reset',token=token) }}重置

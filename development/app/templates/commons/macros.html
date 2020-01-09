@@ -1,0 +1,144 @@
+{% macro show_student(student) %}
+    <tr>
+        <td>{{ student.idcard }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.sex }}</td>
+        <td>{{ student.email }}</td>
+        <td>
+            {% if student._class == None %}
+                未填写
+            {% else %}
+                {{ student._class }}
+            {% endif %}
+        </td>
+        <td class="td-status">
+            <span class="layui-btn layui-btn-normal layui-btn-mini">
+                {% if student.confirmed %}
+                    "已激活"
+                {% else %}
+                    "未激活"
+                {% endif %}
+            </span></td>
+        <td class="td-manage">
+            <a onclick="member_stop(this,'10001')" href="javascript:;" title="启用">
+                <i class="layui-icon">&#xe601;</i>
+            </a>
+            <a title="编辑" onclick="xadmin.open('编辑','member-edit.html',600,400)"
+               href="javascript:;">
+                <i class="layui-icon">&#xe642;</i>
+            </a>
+            <a onclick="xadmin.open('修改密码','member-password.html',600,400)" title="修改密码"
+               href="javascript:;">
+                <i class="layui-icon">&#xe631;</i>
+            </a>
+            <a title="删除" href="
+             {{ url_for('admin_blue.delete_student') }}?uid={{ student.id }} ">
+                <i class="layui-icon">&#xe640;</i>
+            </a>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro show_teacher(teacher) %}
+    <tbody>
+    <tr>
+        <td>{{ teacher.idcard }}</td>
+        <td>{{ teacher.name }}</td>
+        <td>男</td>
+        <td>{{ teacher.email }}</td>
+        <td class="td-manage">
+
+            <a title="编辑" onclick="xadmin.open('编辑','member-edit.html',600,400)"
+               href="javascript:;">
+                <i class="layui-icon">&#xe642;</i>
+            </a>
+            <a onclick="xadmin.open('修改密码','member-password.html',600,400)" title="修改密码"
+               href="javascript:;">
+                <i class="layui-icon">&#xe631;</i>
+            </a>
+            <a title="删除"
+               href="
+            {{ url_for('admin_blue.delete_teacher') }}?uid={{ teacher.id }}">
+                <i class="layui-icon">&#xe640;</i>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+{% endmacro %}
+
+{% macro show_pages(pagination,href) %}
+    {#    分页器#}
+    {% for page in pagination.iter_pages() %}
+        {% if page %}
+            {% if page !=pagination.page %}
+                <a href="{{ href }}?page={{ page }}">{{ page }}</a>
+            {% else %}
+                <strong>{{ page }}</strong>
+            {% endif %}
+        {% else %}
+            <span class=ellipsis>…</span>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro show_question(q) %}
+    <tr>
+        <td>{{ q.id }}</td>
+        <td>{{ q.question }}</td>
+        <td>{{ q.ansA }}</td>
+        <td>{{ q.ansB }}</td>
+        <td>{{ q.ansC }}</td>
+        <td>{{ q.ansD }}</td>
+        <td>{{ q.correct }}</td>
+        <td>{{ q.tag }}</td>
+        <td class="td-manage">
+            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
+                <i class="layui-icon">&#xe63c;</i></a>
+            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                <i class="layui-icon">&#xe640;</i></a>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro show_papers(paper) %}
+    <tr>
+        <td>{{ paper.id }}</td>
+        <td>{{ paper.subject }}</td>
+        <td>{{ paper.describe }}</td>
+        <td>{{ paper.startDate }}</td>
+        <td>
+            {% if paper.status %}
+                开放作答
+            {% else %}
+                关闭作答
+            {% endif %}
+        </td>
+        <td>{{ paper.source_id }}</td>
+        <td class="td-manage">
+            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
+                <i class="layui-icon">&#xe63c;</i></a>
+            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                {#                        <a title="删除" onclick="member_del(this,'要删除的id')" #}
+                {#                           href="{{ url_for('admin_blue.delete_student') }}?uid={{  }}">#}
+                <i class="layui-icon">&#xe640;</i></a>
+        </td>
+    </tr>
+{% endmacro %}
+
+{% macro show_comments(comment) %}
+    <tr>
+        <td>{{ comment.id }}</td>
+        <td>{{ comment.paper_id }}</td>
+        <td>{{ comment.student_id }}</td>
+
+        <td>{{ comment.times }}</td>
+        <td>{{ comment.comment}}</td>
+
+        <td class="td-manage">
+
+            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                <i class="layui-icon">&#xe640;</i></a>
+        </td>
+    </tr>
+{% endmacro %}
+

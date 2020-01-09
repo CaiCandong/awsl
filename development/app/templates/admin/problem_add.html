@@ -1,0 +1,11 @@
+{% extends 'commons/base_.html' %}
+{% block content %}
+    <table style="width: 1300px;">
+        <tr style="height: 800px;">
+            <th style="width: 25%"></th>
+            <th style="width: 55%">{{ wtf.quick_form(form) }}</th>
+            <th></th>
+        </tr>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% macro show_papers(paper) %}
+    <tr>
+        <td>{{ paper.id }}</td>
+        <td>{{  paper.subject}}</td>
+        <td>{{paper.describe}}</td>
+        <td>{{paper.startDate}}</td>
+        <td>
+            {% if paper.status %}
+                开放作答
+                {% else %}
+                关闭作答
+            {% endif %}
+        </td>
+        <td>{{ paper.source_id }}</td>
+        <td class="td-manage">
+            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
+                <i class="layui-icon">&#xe63c;</i></a>
+        </td>
+    </tr>
+{% endmacro %}

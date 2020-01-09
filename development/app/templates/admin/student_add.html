@@ -1,0 +1,30 @@
+{#{% extends 'commons/base2.html' %}#}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+    {% for message in get_flashed_messages() %}
+             <div class="alert alert-success" role="alert">
+                <strong>{{ message }}</strong></div>{% endfor %}
+    <table style=""width="1500px;height:800px;">
+            <tr style="height:20px">
+                <th style="width: 25%"></th>
+                <th style="width: 33%"></th>
+                <th style="width: 33%"></th>
+            </tr>
+                <tr style="height:500px;text-align: center">
+                <th style="width: 25%;text-align: center"></th>
+                <th style="width: 33%;text-align: center">{{ wtf.quick_form(form) }}</th>
+                <th style="width: 33%;text-align: center"></th>
+            </tr>
+                <tr style="height:100px">
+                <th style="width: 25%"></th>
+                <th style="width: 33%"></th>
+                <th style="width: 33%"></th>
+            </tr>
+
+    </table>
+
+{% endblock %}

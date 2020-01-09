@@ -1,0 +1,46 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+<!DOCTYPE html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css2/font.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css2/xadmin.css') }}">
+    <script src="{{ url_for('static',filename='libs/layui/layui.js') }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js2/xadmin.js') }}"></script>
+</head>
+{% block content %}
+    <table style="width: 250px;margin-left: 150px;margin-top: 60px">
+        <tr>
+            <th style="text-align: left;height: 50px;">
+                <span style="color:red;">*</span>一卡通号
+            </th>
+        </tr>
+        <tr style="border: 1px solid #000;height: 35px;width: 250px;background-color:#dce7e7;">
+            <th style="color: gray;text-indent: 10px;">{{ current_user.idcard }}</th>
+        </tr>
+        <th style="text-align: left;height: 50px;">
+            <span style="color:red;">*</span>邮箱地址
+        </th>
+        </tr>
+        <tr style="border: 1px solid #000;height: 35px;width: 250px;background-color:#dce7e7;">
+            <th style="color: gray;text-indent: 10px;">{{ current_user.email }}</th>
+        </tr>
+    </table>
+    <table style="margin-top:20px">
+        <tr>
+            <th style="width: 150px">
+            <th style="width: 500px">
+                {{ wtf.quick_form(form) }}
+            </th>
+            <th></th>
+        </tr>
+    </table>
+{% endblock %}
+
+</html>
